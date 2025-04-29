@@ -11,8 +11,8 @@ body {
     display: grid;
     grid-template-areas:
         "header header header header"
-        "aside1 column column column"
-        "aside1 column column column"
+        "aside1 article article article"
+        "aside1 article article article"
         "aside2 aside2 aside2 aside2"
         "footer footer footer footer";
     grid-template-columns: repeat(4, 1fr); /* Default: 4 equal columns */
@@ -37,6 +37,17 @@ aside:nth-of-type(1) {
     color: white;
     text-align: center;
     padding: 1rem;
+}
+
+/* Article */
+article {
+    grid-area: article;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr; /* 3 equal columns within the article */
+    gap: 15px; /* Spacing between columns */
+    background-color: #2ECC71;
+    padding: 1rem;
+    text-align: center;
 }
 
 /* Columns */
@@ -71,9 +82,7 @@ footer {
         grid-template-areas:
             "header"
             "aside1"
-            "column"
-            "column"
-            "column"
+            "article"
             "aside2"
             "footer";
         grid-template-columns: 1fr; /* Single column layout */
@@ -92,8 +101,8 @@ footer {
     .container {
         grid-template-areas:
             "header header header header"
-            "aside1 column column column"
-            "aside1 column column column"
+            "aside1 article article article"
+            "aside1 article article article"
             "aside2 aside2 aside2 aside2"
             "footer footer footer footer";
         grid-template-columns: 1fr 1fr 1fr 1fr; /* Adjust column widths for desktop */
@@ -104,16 +113,13 @@ footer {
      /* Styling for the ARTICLE section */
      article {
         display: grid;
-        grid-template-areas:
-            "column column column"
-            "column column column";
-        grid-template-rows: auto; /* Auto height for rows */
-        grid-template-columns: 1fr 1fr 1fr; /* 3 equal columns within the ARTICLE */
+        grid-template-columns: repeat(3, 1fr); /* 3 equal columns within the article */
         gap: 15px; /* Spacing between columns */
     }
 
     /* Optional adjustments for desktop */
     .column {
+        grid-row: 2; /* Place in the second row */
         border: 2px solid #ccc; /* Thicker border for better visibility */
         padding: 1.5rem; /* Adjust padding */
     }
