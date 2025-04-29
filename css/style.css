@@ -102,7 +102,7 @@ footer {
     }
 
      /* Styling for the ARTICLE section */
-     .article {
+     article {
         display: grid;
         grid-template-areas:
             "column column column"
