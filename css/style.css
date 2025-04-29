@@ -29,7 +29,7 @@ header {
     text-align: center;
     padding: 1rem;
 }
-
+          
 /* First Aside */
 aside:nth-of-type(1) {
     grid-area: aside1;
@@ -80,4 +80,41 @@ footer {
         grid-template-rows: auto; /* Header and footer auto height, content fills remaining space */
     }
 
+    .column {
+        grid-column: 1 / -1; /* Full width on mobile */
+    }
+
+}
+
+
+/* Desktop layout */
+@media (min-width: 1024px) {
+    .container {
+        grid-template-areas:
+            "header header header header"
+            "aside1 column column column"
+            "aside1 column column column"
+            "aside2 aside2 aside2 aside2"
+            "footer footer footer footer";
+        grid-template-columns: 1fr 1fr 1fr 1fr; /* Adjust column widths for desktop */
+        grid-template-rows: auto 1fr 1fr auto; /* Create space for the bottom half */
+        gap: 20px; /* Increase spacing for larger screens */
+    }
+
+     /* Styling for the ARTICLE section */
+     .article {
+        display: grid;
+        grid-template-areas:
+            "column column column"
+            "column column column";
+        grid-template-rows: auto; /* Auto height for rows */
+        grid-template-columns: 1fr 1fr 1fr; /* 3 equal columns within the ARTICLE */
+        gap: 15px; /* Spacing between columns */
+    }
+
+    /* Optional adjustments for desktop */
+    .column {
+        border: 2px solid #ccc; /* Thicker border for better visibility */
+        padding: 1.5rem; /* Adjust padding */
+    }
 }
